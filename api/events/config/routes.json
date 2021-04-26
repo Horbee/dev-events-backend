@@ -41,6 +41,14 @@
       }
     },
     {
+      "method": "POST",
+      "path": "/events/ismine",
+      "handler": "events.ismine",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "PUT",
       "path": "/events/:id",
       "handler": "events.update",

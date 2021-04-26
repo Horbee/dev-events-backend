@@ -80,4 +80,14 @@ module.exports = {
 
     return sanitizeEntity(data, { model: strapi.models.events });
   },
+  async ismine(ctx) {
+    const { ids } = ctx.request.body;
+
+    const events = await strapi.services.events.find({
+      user: ctx.state.user.id,
+    });
+    const eventIds = events.map((evt) => evt.id);
+
+    return ids.every((id) => eventIds.includes(id));
+  },
 };
